@@ -1,6 +1,9 @@
 select * from EMPLOYEES where rownum = 1;
+
 select JOB_ID from JOBS;
+
 select MANAGER_ID from DEPARTMENTS;
+
 select DEPARTMENT_ID from DEPARTMENTS;
 
 insert into EMPLOYEES (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, JOB_ID, MANAGER_ID, DEPARTMENT_ID, HIRE_DATE)

@@ -10,9 +10,11 @@ select avg(SALARY) from EMPLOYEES;
 
 select distinct(department_id) from EMPLOYEES;
 
-select DEPARTMENT_ID, count(EMPLOYEE_ID) from EMPLOYEES
-	group by DEPARTMENT_ID;
+select DEPARTMENT_ID, count(EMPLOYEE_ID)
+	from EMPLOYEES
+		group by DEPARTMENT_ID;
 
-select DEPARTMENT_ID, count(EMPLOYEE_ID) from EMPLOYEES
-	group by DEPARTMENT_ID
-		having count(EMPLOYEE_ID) >= 10;
+select DEPARTMENT_ID, count(EMPLOYEE_ID)
+	from EMPLOYEES
+		group by DEPARTMENT_ID
+			having count(EMPLOYEE_ID) >= 10;

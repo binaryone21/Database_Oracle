@@ -3,10 +3,11 @@ select * from EMPLOYEES;
 select * from EMPLOYEES
 	where rownum <= 5;
 
-select * from (
-	select rownum as rnum, A.* from (select * from EMPLOYEES) A
-		where rownum <= 8)
-	where rnum >= 3;
+select *
+	from (select rownum as rnum, A.*
+			from (select * from EMPLOYEES) A
+				where rownum <= 8)
+		where rnum >= 3;
 
 select * from EMPLOYEES
 	order by EMPLOYEE_ID desc;
