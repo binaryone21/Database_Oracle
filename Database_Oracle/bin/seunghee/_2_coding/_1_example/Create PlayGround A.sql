@@ -53,8 +53,6 @@ insert into order_table values ('o08', 'pear', 'p02', 50, '강원도 춘천시',
 insert into order_table values ('o09', 'banana', 'p04', 15, '전라남도 목포시', '2019-04-11');
 insert into order_table values ('o10', 'carrot', 'p03', 20, '경기도 안양시', '2019-05-22');
 
-
-
 Create table Books (
     bookid		int			primary key,
     bookname	varchar2(50),

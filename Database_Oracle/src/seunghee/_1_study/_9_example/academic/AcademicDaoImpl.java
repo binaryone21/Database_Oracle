@@ -6,12 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class SungJukDAOImpl implements SungJukDAO {
+public class AcademicDaoImpl implements AcademicDao {
 
-	SungJukJDBC jdbc = new SungJukJDBC();
+	AcademicJDBC jdbc = new AcademicJDBC();
 	
+	// 성적 추가
 	@Override
-	public String insertSungJuk(SungJukVO person) {
+	public String insertAcademic(AcademicVO person) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		String result = "데이터 업로드 실패";
@@ -39,20 +40,21 @@ public class SungJukDAOImpl implements SungJukDAO {
 		return result;
 	}
 
+	// 성적 전체 조회
 	@Override
-	public ArrayList<SungJukVO> selectSungJuk() {
-		ArrayList<SungJukVO> persons = new ArrayList<>();
+	public ArrayList<AcademicVO> listVOAcademic() {
+		ArrayList<AcademicVO> persons = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
 			conn = jdbc.makeConn();
-			pstmt = conn.prepareStatement(jdbc.selectSQL);
+			pstmt = conn.prepareStatement(jdbc.listVOSQL);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				SungJukVO person = new SungJukVO();
-				person.setSno(rs.getInt(1));
+				AcademicVO person = new AcademicVO();
+				person.setAno(rs.getInt(1));
 				person.setName(rs.getString(2));
 				person.setKor(rs.getInt(3));
 				person.setEng(rs.getInt(4));
@@ -69,20 +71,21 @@ public class SungJukDAOImpl implements SungJukDAO {
 		return persons;
 	}
 
+	// 성적 상세 조회
 	@Override
-	public SungJukVO selectOneSungJuk(String target) {
-		SungJukVO person = new SungJukVO();
+	public AcademicVO selectAcademic(String target) {
+		AcademicVO person = new AcademicVO();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
 			conn = jdbc.makeConn();
-			pstmt = conn.prepareStatement(jdbc.selectOneSQL);
+			pstmt = conn.prepareStatement(jdbc.selectSQL);
 			pstmt.setString(1, target);
 			rs = pstmt.executeQuery();
 			if( rs.next()) {
-				person.setSno(rs.getInt(1));
+				person.setAno(rs.getInt(1));
 				person.setName(rs.getString(2));
 				person.setKor(rs.getInt(3));
 				person.setEng(rs.getInt(4));
@@ -101,8 +104,9 @@ public class SungJukDAOImpl implements SungJukDAO {
 		return person;
 	}
 
+	// 성적 수정
 	@Override
-	public String updateSungJuk(SungJukVO person) {
+	public String updateAcademic(AcademicVO person) {
 		String result = "업데이트 실패";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -116,7 +120,7 @@ public class SungJukDAOImpl implements SungJukDAO {
 			pstmt.setInt(4, person.getTot());
 			pstmt.setDouble(5, person.getMean());
 			pstmt.setString(6, String.valueOf(person.getGrd()));
-			pstmt.setInt(7, person.getSno());
+			pstmt.setInt(7, person.getAno());
 			int cnt = pstmt.executeUpdate();
 			if (cnt > 0) {
 				result = "업데이트 성공";
@@ -130,8 +134,9 @@ public class SungJukDAOImpl implements SungJukDAO {
 		return result;
 	}
 
+	// 성적 삭제
 	@Override
-	public String deleteSungJuk(String target) {
+	public String deleteAcademic(String target) {
 		String result = "삭제 실패";
 		Connection conn = null;
 		PreparedStatement pstmt = null;

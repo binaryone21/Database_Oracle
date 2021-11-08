@@ -1,8 +1,8 @@
 package seunghee._1_study._9_example.academic;
 
-public class SungJukVO {
+public class AcademicVO {
 	
-	private int sno;
+	private int ano;
 	private String name;
 	private int kor;
 	private int eng;
@@ -12,17 +12,17 @@ public class SungJukVO {
 	private char grd;
 	private String regdate;
  
-	public SungJukVO() { }
+	public AcademicVO() { }
 	
-	public SungJukVO(String name, int kor, int eng, int mat) {
+	public AcademicVO(String name, int kor, int eng, int mat) {
 		this.name = name;
 	    this.kor = kor;
 	    this.eng = eng;
 	    this.mat = mat;
 	}  
 	
-	public SungJukVO(int sno, String name, int kor, int eng, int mat, String regdate) {
-		this.sno = sno;
+	public AcademicVO(int ano, String name, int kor, int eng, int mat, String regdate) {
+		this.ano = ano;
 		this.name = name;
 		this.kor = kor;
 		this.eng = eng;
@@ -30,9 +30,9 @@ public class SungJukVO {
 		this.regdate = regdate;
 	}
 	
-	public SungJukVO(int sno, String name, int kor, int eng, int mat, int tot, double mean, char grd, String regdate) {
+	public AcademicVO(int ano, String name, int kor, int eng, int mat, int tot, double mean, char grd, String regdate) {
 		super();
-		this.sno = sno;
+		this.ano = ano;
 		this.name = name;
 		this.kor = kor;
 		this.eng = eng;
@@ -44,11 +44,11 @@ public class SungJukVO {
 	}
 
 	
-	public int getSno() {
-		return sno;
+	public int getAno() {
+		return ano;
 	}
-	public void setSno(int sno) {
-		this.sno = sno;
+	public void setAno(int sno) {
+		this.ano = sno;
 	}
 	public String getRegdate() {
 		return regdate;
