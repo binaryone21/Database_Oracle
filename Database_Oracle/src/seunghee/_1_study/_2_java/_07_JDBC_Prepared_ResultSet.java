@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
+@SuppressWarnings("resource")
 public class _07_JDBC_Prepared_ResultSet {
 	public static void main(String[] args) {
 		

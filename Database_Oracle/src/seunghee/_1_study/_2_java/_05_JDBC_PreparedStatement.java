@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.Scanner;
 
+@SuppressWarnings({"null", "resource"})
 public class _05_JDBC_PreparedStatement {
 	public static void main(String[] args) {
 		

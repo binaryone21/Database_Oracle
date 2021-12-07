@@ -180,3 +180,22 @@
             end as 급여등급
                 from hr.employees
                     where job_id = 'IT_PROG';
+                    
+    RANK, DENSE_RANK, ROW_NUMBER : 데이터 값에 순위 매기기
+    
+        select
+            employee_id,
+            salary,
+            rank() over(order by salary desc) RANK_급여,
+            dense_rank() over(order by salary desc) DENSE_RANK_급여,
+            row_number() over(order by salary) ROW_NUMBER_급여
+                from hr.employees;
+                
+        select
+            employee_id,
+            department_id,
+            salary,
+            rank() over(partition by department_id order by salary desc) RANK_급여,
+            dense_rank() over(partition by department_id order by salary desc) DENSE_RANK_급여,
+            row_number() over(partition by department_id order by salary) ROW_NUMBER_급여
+                from hr.employees;

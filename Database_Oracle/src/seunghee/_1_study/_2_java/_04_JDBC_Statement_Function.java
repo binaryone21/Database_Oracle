@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.Scanner;
 
+@SuppressWarnings("resource")
 public class _04_JDBC_Statement_Function {
 	public static void main(String[] args) {
 		

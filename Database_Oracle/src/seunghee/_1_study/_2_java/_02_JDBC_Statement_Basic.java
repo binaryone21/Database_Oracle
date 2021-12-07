@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
+@SuppressWarnings("resource")
 public class _02_JDBC_Statement_Basic {
 	public static void main(String[] args) {
 		
