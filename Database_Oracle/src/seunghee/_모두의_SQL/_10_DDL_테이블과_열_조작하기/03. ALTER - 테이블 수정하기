@@ -1,0 +1,21 @@
+열 추가하기
+
+        alter table sample_product add (
+            factory varchar(10)
+        );
+        
+열 수정하기
+
+        alter table sample_product modify (
+            factory char(10)
+        );
+        
+열 이름 바꾸기
+
+        alter table sample_product rename column
+            factory to factory_name;
+            
+열 삭제하기
+
+        alter table sample_product drop column
+            factory_name;
